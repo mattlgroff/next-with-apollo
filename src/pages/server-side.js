@@ -4,8 +4,8 @@ import { gql } from "@apollo/client";
 import client from "../../apollo-client";
 const inter = Inter({ subsets: ["latin"] });
 
-// Fetches data from the GraphQL API on build time
-export async function getStaticProps() {
+// Fetches data from the GraphQL API on every page request
+export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`
       query Countries {
